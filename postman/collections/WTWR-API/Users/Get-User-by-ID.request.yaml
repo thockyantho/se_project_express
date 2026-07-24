@@ -1,0 +1,10 @@
+$kind: http-request
+name: Get User by ID
+method: GET
+url: '{{baseUrl}}/users/:userId'
+order: 2000
+description: Returns a single user by their MongoDB ObjectId.
+pathVariables:
+  - key: userId
+    value: ''
+    description: The ID of the user to retrieve
