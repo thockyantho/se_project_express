@@ -3,6 +3,6 @@ const { getUsers } = require("../controllers/users.js");
 
 router.get("/", getUsers);
 router.get("/:userId", () => console.log("GET users by ID"));
-router.post("/", () => console.log("POST users"));
+router.post("/", () => createUser);
 
 module.exports = router;
