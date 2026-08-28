@@ -16,6 +16,5 @@ const createItem = (req, res) => {
       return res.status(500).send({ message: err.message });
     });
 };
-// does this work?
 
-//testing number 2
+module.exports = { createItem };
