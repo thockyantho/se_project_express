@@ -13,8 +13,17 @@ const createItem = (req, res) => {
       if (err.name === "ValidationError") {
         return res.status(400).send({ message: err.message });
       }
-      return res.status(500).send({ message: err.message });
+      return res.status(500).send({ message: "Error from createItem" });
     });
 };
 
-module.exports = { createItem };
+const getItems = (req, res) => {
+  ClothingItem.find({})
+    .then((items) => res.status(200).send({ data: items }))
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).send({ message: "Error from getItems" });
+    });
+};
+
+module.exports = { createItem, getItems };
