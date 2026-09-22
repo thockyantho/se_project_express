@@ -1,67 +1,66 @@
 # WTWR (What to Wear?): Back End
 
-The back-end project is focused on creating a server for the WTWR application. You’ll gain a deeper understanding of how to work with databases, set up security and testing, and deploy web applications on a remote machine. The eventual goal is to create a server with an API and user authorization.
+## Overview
+
+This project is the back end for the WTWR (What to Wear?) application. It provides an API for managing users and clothing items and connects the application to a MongoDB database.
+
+The project was built to practice back-end development with Express, MongoDB, and Mongoose, including routing, controllers, data validation, error handling, and interactions with a database.
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Validator
+- ESLint
+- Nodemon
+- Postman
+
+## Project Features
+
+- Set up an Express server
+- Connected the server to a MongoDB database
+- Created user and clothing item schemas with Mongoose
+- Added validation for user and clothing item data
+- Created routes and controllers for users and clothing items
+- Added functionality for creating, retrieving, and deleting clothing items
+- Added functionality for liking and unliking clothing items
+- Added centralized HTTP error status codes
+- Added error handling for invalid IDs, validation errors, missing resources, and server errors
 
 ## Running the Project
 
-`npm run start` — to launch the server
+To launch the server:
 
-`npm run dev` — to launch the server with the hot reload feature
+`npm run start`
 
-### Testing
+To launch the server with hot reload using Nodemon:
 
-Before committing your code, make sure you edit the file `sprint.txt` in the root folder. The file `sprint.txt` should contain the number of the sprint you're currently working on. For ex. 12
+`npm run dev`
 
-# Project 12: WTWR (What to Wear?): Back End
+To run ESLint:
 
-### Overview
+`npm run lint`
 
-- Intro
-- Figma
-- Images
+The server runs on port `3001` by default.
 
-**Intro**
+## Testing
 
-This application will read weather data from a Weather API and then recommend suitable clothing to the user based on that data. In this project, the objective is to create a front end for the application using the fundamental principles of React.
+The API can be tested using the provided Postman collection.
+
+Before submitting the project, make sure the `sprint.txt` file in the root directory contains the current sprint number.
+
+For Project 12:
+
+`sprint.txt` should contain `12`.
 
 ## Project Pitch Video
 
-Check out [https://drive.google.com/file/d/1m8M4VpVsrq3fJagjxiqye-IXnGwG9-Y7/view?usp=sharing], Where I describe my project and some challenges I faced while building it.
+The project pitch video describes the project and some of the challenges encountered while building it.
 
-## Project features
+[Project Pitch Video](https://drive.google.com/file/d/1m8M4VpVsrq3fJagjxiqye-IXnGwG9-Y7/view?usp=sharing)
 
-The functionalities we used:
+## Repository
 
-- Weather API
-- Temperature will be used to filter the cards that are shown to the user
-- Opening the picture modal
-- Smooth modal opening and closing
-
-The functionalities we added:
-
-- A temperature unit toggle switch using React context
-- A profile page route React Router
-- Form submission using contolled components or refs
-- **GitHub Pages**
-
-https://github.com/thockyantho/se_project_react
-
-**Figma**
-
-https://www.figma.com/design/dQLJwEKasIdspciJAJrCaf/Sprint-11_-WTWR?node-id=311-433&p=f&t=HJ0NqH1o5fZ4ysea-0
-
-**Reference Images**
-
-Web:
-![Web Layout](images/Web.png)
-
-Mobile:
-
-![Mobile Lyout](images/Mobile.png)
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[GitHub Repository](https://github.com/thockyantho/se_project_express)
