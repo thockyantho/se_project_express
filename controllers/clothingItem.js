@@ -2,8 +2,6 @@ const ClothingItem = require("../models/clothingItem");
 const { BAD_REQUEST, NOT_FOUND, SERVER_ERROR } = require("../utils/errors");
 
 const createItem = (req, res) => {
-  console.log(req.body);
-
   const { name, weather, imageUrl } = req.body;
 
   ClothingItem.create({ name, weather, imageUrl, owner: req.user._id })
@@ -42,8 +40,6 @@ const updateItem = (req, res) => {
 
 const deleteItem = (req, res) => {
   const { itemId } = req.params;
-
-  console.log(itemId);
 
   ClothingItem.findByIdAndDelete(itemId)
     .orFail()
