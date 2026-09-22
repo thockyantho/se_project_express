@@ -1,5 +1,5 @@
-const User = require("../models/users.js");
-const { BAD_REQUEST, NOT_FOUND, SERVER_ERROR } = require("../utils/errors.js");
+const User = require("../models/users");
+const { BAD_REQUEST, NOT_FOUND, SERVER_ERROR } = require("../utils/errors");
 
 // GET /users
 const getUsers = (req, res) => {
