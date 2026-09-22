@@ -58,8 +58,24 @@ const likeItem = (req, res) => {
   )
     .orFail()
     .then((item) => res.status(200).send(item))
-    .catch((e) => {
-      res.status(500).send({ message: "Error from liking Item", e });
+    .catch((err) => {
+      console.error(err);
+
+      if (err.name === "CastError") {
+        return res.status(400).send({
+          message: "Invalid item ID",
+        });
+      }
+
+      if (err.name === "DocumentNotFoundError") {
+        return res.status(404).send({
+          message: "Item not found",
+        });
+      }
+
+      return res.status(500).send({
+        message: "An error has occurred on the server.",
+      });
     });
 };
 
@@ -71,8 +87,24 @@ const dislikeItem = (req, res) => {
   )
     .orFail()
     .then((item) => res.status(200).send(item))
-    .catch((e) => {
-      res.status(500).send({ message: "Error from disliking Item", e });
+    .catch((err) => {
+      console.error(err);
+
+      if (err.name === "CastError") {
+        return res.status(400).send({
+          message: "Invalid item ID",
+        });
+      }
+
+      if (err.name === "DocumentNotFoundError") {
+        return res.status(404).send({
+          message: "Item not found",
+        });
+      }
+
+      return res.status(500).send({
+        message: "An error has occurred on the server.",
+      });
     });
 };
 
