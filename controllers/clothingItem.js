@@ -5,7 +5,7 @@ const createItem = (req, res) => {
 
   const { name, weather, imageUrl } = req.body;
 
-  ClothingItem.create({ name, weather, imageUrl })
+  ClothingItem.create({ name, weather, imageUrl, owner: req.user._id })
     .then((item) => res.status(201).send(item))
     .catch((err) => {
       console.error(err);
@@ -57,7 +57,7 @@ const likeItem = (req, res) => {
     { new: true }
   )
     .orFail()
-    .then((item) => res.status(200).send({ data: item }))
+    .then((item) => res.status(200).send(item))
     .catch((e) => {
       res.status(500).send({ message: "Error from liking Item", e });
     });
@@ -70,7 +70,7 @@ const dislikeItem = (req, res) => {
     { new: true }
   )
     .orFail()
-    .then((item) => res.status(200).send({ data: item }))
+    .then((item) => res.status(200).send(item))
     .catch((e) => {
       res.status(500).send({ message: "Error from disliking Item", e });
     });
