@@ -1,7 +1,6 @@
 const ClothingItem = require("../models/clothingItem.js");
 
 const createItem = (req, res) => {
-  console.log(req);
   console.log(req.body);
 
   const { name, weather, imageURL } = req.body;
@@ -11,7 +10,7 @@ const createItem = (req, res) => {
     .catch((err) => {
       console.error(err);
       if (err.name === "ValidationError") {
-        return res.status(200).send({ message: err.message });
+        return res.status(400).send({ message: err.message });
       }
       return res.status(500).send({ message: "Error from createItem" });
     });
