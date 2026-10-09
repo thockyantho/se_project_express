@@ -13,14 +13,6 @@ const routes = require("./routes");
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-  req.user = {
-    _id: "6aa9d9836b0e13d7668b68dd",
-  };
-
-  next();
-});
-
 app.use(routes);
 
 app.listen(PORT, () => {});
