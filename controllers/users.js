@@ -84,4 +84,31 @@ const getUser = (req, res) => {
     });
 };
 
-module.exports = { getUsers, createUser, getUser, login };
+const updateUser = (req, res) => {
+  const { name, avatar } = req.body;
+
+  User.findByIdAndUpdate(
+    req.user._id,
+    { name, avatar },
+    { new: true, runValidators: true }
+  )
+    .orFail()
+    .then((user) => res.status(200).send(user))
+    .catch((err) => {
+      console.error(err);
+
+      if (err.name === "ValidationError" || err.name === "CastError") {
+        return res.status(BAD_REQUEST).send({ message: err.message });
+      }
+
+      if (err.name === "DocumentNotFoundError") {
+        return res.status(NOT_FOUND).send({ message: "User not found" });
+      }
+
+      return res.status(SERVER_ERROR).send({
+        message: "An error has occurred on the server.",
+      });
+    });
+};
+
+module.exports = { getUsers, createUser, getUser, login, updateUser };
