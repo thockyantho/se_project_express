@@ -31,9 +31,19 @@ const getItems = (req, res) => {
 const deleteItem = (req, res) => {
   const { itemId } = req.params;
 
-  ClothingItem.findByIdAndDelete(itemId)
+  ClothingItem.findById(itemId)
     .orFail()
-    .then((item) => res.status(200).send(item))
+    .then((item) => {
+      if (!item.owner.equals(req.user._id)) {
+        return res.status(403).send({
+          message: "You are not authorized to delete this item",
+        });
+      }
+
+      return ClothingItem.findByIdAndDelete(itemId).then((deletedItem) =>
+        res.status(200).send(deletedItem)
+      );
+    })
     .catch((err) => {
       console.error(err);
 
