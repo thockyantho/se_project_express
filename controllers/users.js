@@ -65,7 +65,8 @@ const login = (req, res) => {
 };
 
 const getUser = (req, res) => {
-  const { userId } = req.params;
+  const userId = req.user._id;
+
   User.findById(userId)
     .orFail()
     .then((user) => res.status(200).send(user))
