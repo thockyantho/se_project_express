@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 const {
   BAD_REQUEST,
+  UNAUTHORIZED,
   NOT_FOUND,
   SERVER_ERROR,
   CONFLICT,
@@ -82,7 +83,7 @@ const login = (req, res) => {
       res.send({ token });
     })
     .catch(() => {
-      res.status(401).send({ message: "Incorrect email or password" });
+      res.status(UNAUTHORIZED).send({ message: "Incorrect email or password" });
     });
 };
 
