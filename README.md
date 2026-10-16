@@ -155,7 +155,7 @@ ESLint was used to verify code quality and consistency.
 
 The project pitch video provides an overview of the application, its back-end functionality, and challenges encountered during development.
 
-[Watch the Project Pitch Video](https://drive.google.com/file/d/1m8M4VpVsrq3fJagjxiqye-IXnGwG9-Y7/view?usp=sharing)
+[Watch the Project Pitch Video](https://drive.google.com/file/d/1GR2ISNUeh-5M7kdIqx2O5OlPNl9UPfOM/view?usp=sharing)
 
 ## Repository
 
