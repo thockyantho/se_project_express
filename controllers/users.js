@@ -9,7 +9,7 @@ const {
   CONFLICT,
 } = require("../utils/errors");
 
-// GET /users
+// POST /signup
 const createUser = (req, res) => {
   const { name, avatar, email, password } = req.body;
 
