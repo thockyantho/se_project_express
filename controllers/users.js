@@ -80,6 +80,7 @@ const getUser = (req, res) => {
   const userId = req.user._id;
 
   User.findById(userId)
+    .select("-password")
     .orFail()
     .then((user) => res.status(200).send(user))
     .catch((err) => {
@@ -104,6 +105,7 @@ const updateUser = (req, res) => {
     { name, avatar },
     { new: true, runValidators: true }
   )
+    .select("-password")
     .orFail()
     .then((user) => res.status(200).send(user))
     .catch((err) => {
